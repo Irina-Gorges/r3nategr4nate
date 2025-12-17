@@ -32,6 +32,10 @@ let header = document.querySelector('header');
 
 header.classList.toggle('sticky', window.scrollY > 100);
 
+/*====================== scroll up button ======================*/
+let scrollUpBtn = document.querySelector('#scrollUpBtn');
+
+scrollUpBtn.classList.toggle('show', window.scrollY > 100);
 
 /*====================== remove toggle icon and navbar when click navbar link (scroll) ======================*/
 menuIcon.classList.remove('bx-x');

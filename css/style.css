@@ -149,7 +149,7 @@ span {
     background: var(--main-color);
     color: var(--second-bg-color);
     box-shadow: 0 0 1rem var(--main-color);
-    transform: scale(1);
+    transform: scale(1.2);
 }
 
 .btn {
@@ -383,16 +383,20 @@ span {
 
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 2rem 9%;
+    padding: 4rem 9%;
     background: var(--second-bg-color);
 }
 
 
 .footer-text p {
     font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 
@@ -411,6 +415,50 @@ span {
     color: var(--second-bg-color);
 }
 
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+/* scroll up button */
+.scroll-up-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 5rem;
+    height: 5rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-up-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-up-btn a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.scroll-up-btn a i {
+    font-size: 2.4rem;
+    color: var(--second-bg-color);
+}
+
+.scroll-up-btn:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
 
 /* BREAKPOINTS */
 @media (max-width: 1200px) {
