@@ -66,3 +66,98 @@ const typed = new Typed('.multiple-text', {
     backDelay: 1000,
     loop: true
 });
+
+/*====================== form validation ======================*/
+const form = document.getElementById('contactForm');
+
+// Validierungsfunktionen
+function validateName() {
+    const name = document.getElementById('name').value.trim();
+    const errorEl = document.getElementById('name-error');
+    if (name === '' || name.length < 2) {
+        errorEl.textContent = 'Bitte gib Deinen Namen ein (min. 2 Zeichen).';
+        return false;
+    } else {
+        errorEl.textContent = '';
+        return true;
+    }
+}
+
+function validateEmail() {
+    const email = document.getElementById('email').value.trim();
+    const errorEl = document.getElementById('email-error');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === '' || !emailPattern.test(email)) {
+        errorEl.textContent = 'Bitte gib Deine E-Mail-Adresse ein.';
+        return false;
+    } else {
+        errorEl.textContent = '';
+        return true;
+    }
+}
+
+function validatePhone() {
+    const phone = document.getElementById('phone').value.trim();
+    const errorEl = document.getElementById('phone-error');
+    if (phone === '' || !/^\d{10,15}$/.test(phone.replace(/\s/g, ''))) {
+        errorEl.textContent = 'Bitte gib Deine Telefonnummer ein.';
+        return false;
+    } else {
+        errorEl.textContent = '';
+        return true;
+    }
+}
+
+function validateSubject() {
+    const subject = document.getElementById('subject').value.trim();
+    const errorEl = document.getElementById('subject-error');
+    if (subject === '') {
+        errorEl.textContent = 'Bitte gib Dein Anliegen ein.';
+        return false;
+    } else {
+        errorEl.textContent = '';
+        return true;
+    }
+}
+
+function validateMessage() {
+    const message = document.getElementById('message').value.trim();
+    const errorEl = document.getElementById('message-error');
+    if (message === '') {
+        errorEl.textContent = 'Bitte gib Deine Nachricht ein.';
+        return false;
+    } else {
+        errorEl.textContent = '';
+        return true;
+    }
+}
+
+// Event-Listener für Echtzeit-Validierung
+document.getElementById('name').addEventListener('blur', validateName);
+document.getElementById('email').addEventListener('blur', validateEmail);
+document.getElementById('phone').addEventListener('blur', validatePhone);
+document.getElementById('subject').addEventListener('blur', validateSubject);
+document.getElementById('message').addEventListener('blur', validateMessage);
+
+// Optional: Fehler beim Tippen entfernen, wenn gültig
+document.getElementById('name').addEventListener('input', () => { if (validateName()) {} });
+document.getElementById('email').addEventListener('input', () => { if (validateEmail()) {} });
+document.getElementById('phone').addEventListener('input', () => { if (validatePhone()) {} });
+document.getElementById('subject').addEventListener('input', () => { if (validateSubject()) {} });
+document.getElementById('message').addEventListener('input', () => { if (validateMessage()) {} });
+
+// Submit-Validierung
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+    const isPhoneValid = validatePhone();
+    const isSubjectValid = validateSubject();
+    const isMessageValid = validateMessage();
+
+    if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
+        alert('Formular erfolgreich gesendet!');
+        // this.submit(); // Entferne Kommentar, um tatsächlich zu senden
+    }
+});

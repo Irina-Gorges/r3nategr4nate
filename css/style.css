@@ -352,9 +352,16 @@ span {
     flex-wrap: wrap;
 }
 
+.contact form .input-container {
+    width: 49%;
+}
 
-.contact form .input-box input,
-.contact form textarea {
+.contact form > .input-container {
+    width: 100%;
+}
+
+.contact form .input-container input,
+.contact form .input-container textarea {
     width: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
@@ -364,13 +371,7 @@ span {
     margin: .7rem 0;
 }
 
-
-.contact form .input-box input {
-    width: 49%;
-}
-
-
-.contact form textarea {
+.contact form .input-container textarea {
     resize: none;
 }
 
@@ -378,6 +379,14 @@ span {
 .contact form .btn {
     margin-top: 2rem;
     cursor: pointer;
+}
+
+.contact form .error {
+    display: block;
+    color: red;
+    font-size: 1.2rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 

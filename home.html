@@ -185,16 +185,31 @@
           <section class="contact" id="contact">
             <h2 class="heading">Kontakt<span>formular:</span></h2>
 
-            <form action="#">
+            <form action="#" id="contactForm">
                 <div class="input-box">
-                    <input type="text" placeholder="Voller Name">
-                    <input type="email" placeholder="Email Adresse">
+                    <div class="input-container">
+                        <input type="text" placeholder="Dein Name" id="name">
+                        <span class="error" id="name-error"></span>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" placeholder="Email Adresse" id="email">
+                        <span class="error" id="email-error"></span>
+                    </div>
                 </div>
                 <div class="input-box">
-                    <input type="number" placeholder="Telefonnummer">
-                    <input type="email" placeholder="Anliegen">
+                    <div class="input-container">
+                        <input type="tel" placeholder="Telefonnummer" id="phone">
+                        <span class="error" id="phone-error"></span>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" placeholder="Dein Anliegen" id="subject">
+                        <span class="error" id="subject-error"></span>
+                    </div>
                 </div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Ihre Nachricht"></textarea>
+                <div class="input-container">
+                    <textarea name="" id="message" cols="30" rows="10" placeholder="Deine Nachricht"></textarea>
+                    <span class="error" id="message-error"></span>
+                </div>
                 <input type="submit" value="Nachricht senden" class="btn">
             </form>
           </section>
